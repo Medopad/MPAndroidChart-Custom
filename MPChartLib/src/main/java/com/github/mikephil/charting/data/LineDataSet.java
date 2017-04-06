@@ -118,7 +118,6 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
     /**
      * Returns the drawing mode for this LineDataSet
      *
-     * @return
      */
     public void setMode(LineDataSet.Mode mode) {
         mMode = mode;
@@ -189,7 +188,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
     /**
      * sets the size (radius) of the circle shpaed value indicators,
      * default size = 4f
-     * <p/>
+     *
      * This method is deprecated because of unclarity. Use setCircleRadius instead.
      *
      * @param size

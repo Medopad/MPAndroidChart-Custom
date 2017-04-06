@@ -49,8 +49,8 @@ public interface IDataSet<T extends Entry> {
     float getXMax();
 
     /**
-     * Returns the number of y-values this DataSet represents -> the size of the y-values array
-     * -> yvals.size()
+     * Returns the number of y-values this DataSet represents greater than the size of the y-values array
+     * greater than yvals.size()
      *
      * @return
      */
@@ -394,28 +394,28 @@ public interface IDataSet<T extends Entry> {
 
     /**
      * The form to draw for this dataset in the legend.
-     * <p/>
+     *
      * Return `DEFAULT` to use the default legend form.
      */
     Legend.LegendForm getForm();
 
     /**
      * The form size to draw for this dataset in the legend.
-     * <p/>
+     *
      * Return `Float.NaN` to use the default legend form size.
      */
     float getFormSize();
 
     /**
      * The line width for drawing the form of this dataset in the legend
-     * <p/>
+     *
      * Return `Float.NaN` to use the default legend form line width.
      */
     float getFormLineWidth();
 
     /**
      * The line dash path effect used for shapes that consist of lines.
-     * <p/>
+     *
      * Return `null` to use the default legend form line dash effect.
      */
     DashPathEffect getFormLineDashEffect();

@@ -352,7 +352,7 @@ public abstract class PieRadarChartBase<T extends ChartData<? extends IDataSet<?
 
     /**
      * Set an offset for the rotation of the RadarChart in degrees. Default 270f
-     * --> top (NORTH)
+     * -- top (NORTH)
      *
      * @param angle
      */
@@ -375,7 +375,7 @@ public abstract class PieRadarChartBase<T extends ChartData<? extends IDataSet<?
 
     /**
      * gets a normalized version of the current rotation angle of the pie chart,
-     * which will always be between 0.0 < 360.0
+     * which will always be between 0.0 smaller than 360.0
      *
      * @return
      */

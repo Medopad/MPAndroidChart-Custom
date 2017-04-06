@@ -637,8 +637,8 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * Zooms in or out by the given scale factor. x and y are the coordinates
      * (in pixels) of the zoom center.
      *
-     * @param scaleX if < 1f --> zoom out, if > 1f --> zoom in
-     * @param scaleY if < 1f --> zoom out, if > 1f --> zoom in
+     * @param scaleX if smaller than 1f -- zoom out, if greater than 1f -- zoom in
+     * @param scaleY if smaller than 1f -- zoom out, if greater than 1f -- zoom in
      * @param x
      * @param y
      */
@@ -1553,7 +1553,6 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
 
     /**
      * @return true if auto scaling on the y axis is enabled.
-     * @default false
      */
     public boolean isAutoScaleMinMaxEnabled() {
         return mAutoScaleMinMaxEnabled;

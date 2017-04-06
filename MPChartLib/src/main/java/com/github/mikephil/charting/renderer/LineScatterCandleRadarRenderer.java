@@ -22,7 +22,7 @@ public abstract class LineScatterCandleRadarRenderer extends BarLineScatterCandl
     }
 
     /**
-     * Draws vertical & horizontal highlight-lines if enabled.
+     * Draws vertical and horizontal highlight-lines if enabled.
      *
      * @param c
      * @param x x-position of the highlight line intersection

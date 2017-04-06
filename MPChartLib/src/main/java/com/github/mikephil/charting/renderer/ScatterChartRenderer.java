@@ -10,6 +10,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.ScatterData;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.dataprovider.ScatterDataProvider;
+import com.github.mikephil.charting.interfaces.datasets.IBubbleDataSet;
 import com.github.mikephil.charting.interfaces.datasets.IScatterDataSet;
 import com.github.mikephil.charting.renderer.scatter.IShapeRenderer;
 import com.github.mikephil.charting.utils.MPPointD;
@@ -48,45 +49,46 @@ public class ScatterChartRenderer extends LineScatterCandleRadarRenderer {
     float[] mPixelBuffer = new float[2];
 
     protected void drawDataSet(Canvas c, IScatterDataSet dataSet) {
+//*** moved to drawExtra to bleed icons over the container edges ***///
 
-        ViewPortHandler viewPortHandler = mViewPortHandler;
-
-        Transformer trans = mChart.getTransformer(dataSet.getAxisDependency());
-
-        float phaseY = mAnimator.getPhaseY();
-
-        IShapeRenderer renderer = dataSet.getShapeRenderer();
-        if (renderer == null) {
-            Log.i("MISSING", "There's no IShapeRenderer specified for ScatterDataSet");
-            return;
-        }
-
-        int max = (int)(Math.min(
-                Math.ceil((float)dataSet.getEntryCount() * mAnimator.getPhaseX()),
-                (float)dataSet.getEntryCount()));
-
-        for (int i = 0; i < max; i++) {
-
-            Entry e = dataSet.getEntryForIndex(i);
-
-            mPixelBuffer[0] = e.getX();
-            mPixelBuffer[1] = e.getY() * phaseY;
-
-            trans.pointValuesToPixel(mPixelBuffer);
-
-            if (!viewPortHandler.isInBoundsRight(mPixelBuffer[0]))
-                break;
-
-            if (!viewPortHandler.isInBoundsLeft(mPixelBuffer[0])
-                    || !viewPortHandler.isInBoundsY(mPixelBuffer[1]))
-                continue;
-
-            mRenderPaint.setColor(dataSet.getColor(i / 2));
-            renderer.renderShape(
-                    c, dataSet, mViewPortHandler,
-                    mPixelBuffer[0], mPixelBuffer[1],
-                    mRenderPaint);
-        }
+//        ViewPortHandler viewPortHandler = mViewPortHandler;
+//
+//        Transformer trans = mChart.getTransformer(dataSet.getAxisDependency());
+//
+//        float phaseY = mAnimator.getPhaseY();
+//
+//        IShapeRenderer renderer = dataSet.getShapeRenderer();
+//        if (renderer == null) {
+//            Log.i("MISSING", "There's no IShapeRenderer specified for ScatterDataSet");
+//            return;
+//        }
+//
+//        int max = (int)(Math.min(
+//                Math.ceil((float)dataSet.getEntryCount() * mAnimator.getPhaseX()),
+//                (float)dataSet.getEntryCount()));
+//
+//        for (int i = 0; i < max; i++) {
+//
+//            Entry e = dataSet.getEntryForIndex(i);
+//
+//            mPixelBuffer[0] = e.getX();
+//            mPixelBuffer[1] = e.getY() * phaseY;
+//
+//            trans.pointValuesToPixel(mPixelBuffer);
+//
+//            if (!viewPortHandler.isInBoundsRight(mPixelBuffer[0]))
+//                break;
+//
+//            if (!viewPortHandler.isInBoundsLeft(mPixelBuffer[0])
+//                    || !viewPortHandler.isInBoundsY(mPixelBuffer[1]))
+//                continue;
+//
+//            mRenderPaint.setColor(dataSet.getColor(i / 2));
+//            renderer.renderShape(
+//                    c, dataSet, mViewPortHandler,
+//                    mPixelBuffer[0], mPixelBuffer[1],
+//                    mRenderPaint);
+//        }
     }
 
     @Override
@@ -163,6 +165,52 @@ public class ScatterChartRenderer extends LineScatterCandleRadarRenderer {
 
     @Override
     public void drawExtras(Canvas c) {
+
+        List<IScatterDataSet> dataSets = mChart.getScatterData().getDataSets();
+
+        for (int k = 0; k < dataSets.size(); k++) {
+
+            IScatterDataSet dataSet = dataSets.get(k);
+
+            ViewPortHandler viewPortHandler = mViewPortHandler;
+
+            Transformer trans = mChart.getTransformer(dataSet.getAxisDependency());
+
+            float phaseY = mAnimator.getPhaseY();
+
+            IShapeRenderer renderer = dataSet.getShapeRenderer();
+            if (renderer == null) {
+                Log.i("MISSING", "There's no IShapeRenderer specified for ScatterDataSet");
+                return;
+            }
+
+            int max = (int) (Math.min(
+                    Math.ceil((float) dataSet.getEntryCount() * mAnimator.getPhaseX()),
+                    (float) dataSet.getEntryCount()));
+
+            for (int i = 0; i < max; i++) {
+
+                Entry e = dataSet.getEntryForIndex(i);
+
+                mPixelBuffer[0] = e.getX();
+                mPixelBuffer[1] = e.getY() * phaseY;
+
+                trans.pointValuesToPixel(mPixelBuffer);
+
+                if (!viewPortHandler.isInBoundsRight(mPixelBuffer[0]))
+                    break;
+
+                if (!viewPortHandler.isInBoundsLeft(mPixelBuffer[0])
+                        || !viewPortHandler.isInBoundsY(mPixelBuffer[1]))
+                    continue;
+
+                mRenderPaint.setColor(dataSet.getColor(i / 2));
+                renderer.renderShape(
+                        c, dataSet, mViewPortHandler,
+                        mPixelBuffer[0], mPixelBuffer[1],
+                        mRenderPaint);
+            }
+        }
     }
 
     @Override

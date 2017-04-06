@@ -15,7 +15,7 @@ import java.text.DecimalFormat;
  * (https://github.com/romangromov) for this piece of code.
  *
  * @author Philipp Jahoda
- * @author Oleksandr Tyshkovets <olexandr.tyshkovets@gmail.com>
+ * @author Oleksandr Tyshkovets olexandr.tyshkovets@gmail.com
  */
 public class LargeValueFormatter implements IValueFormatter, IAxisValueFormatter
 {

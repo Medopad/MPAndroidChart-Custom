@@ -302,7 +302,7 @@ public class RadarChart extends PieRadarChartBase<RadarData> {
      * Sets the number of web-lines that should be skipped on chart web before the
      * next one is drawn. This targets the lines that come from the center of the RadarChart.
      *
-     * @param count if count = 1 -> 1 line is skipped in between
+     * @param count if count = 1 -- 1 line is skipped in between
      */
     public void setSkipWebLineCount(int count) {
 

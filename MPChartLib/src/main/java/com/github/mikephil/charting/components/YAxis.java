@@ -77,7 +77,7 @@ public class YAxis extends AxisBase {
 
     /**
      * the minimum width that the axis should take (in dp).
-     * <p/>
+     *
      * default: 0.0
      */
     protected float mMinWidth = 0.f;

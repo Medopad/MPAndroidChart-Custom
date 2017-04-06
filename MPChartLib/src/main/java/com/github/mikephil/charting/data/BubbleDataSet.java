@@ -37,6 +37,10 @@ public class BubbleDataSet extends BarLineScatterCandleBubbleDataSet<BubbleEntry
         if (size > mMaxSize) {
             mMaxSize = size;
         }
+
+        if(e instanceof FixedSizeBubbleEntry){
+            mMaxSize = 10f;
+        }
     }
 
     @Override

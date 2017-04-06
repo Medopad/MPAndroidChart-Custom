@@ -494,7 +494,7 @@ public abstract class Utils {
     }
 
     /**
-     * Original method view.postInvalidateOnAnimation() only supportd in API >=
+     * Original method view.postInvalidateOnAnimation() only supportd in API greater than or equal
      * 16, This is a replica of the code from ViewCompat.
      *
      * @param view
@@ -516,7 +516,7 @@ public abstract class Utils {
     }
 
     /**
-     * returns an angle between 0.f < 360.f (not less than zero, less than 360)
+     * returns an angle between 0.f smaller than 360.f (not less than zero, less than 360)
      */
     public static float getNormalizedAngle(float angle) {
         while (angle < 0.f)

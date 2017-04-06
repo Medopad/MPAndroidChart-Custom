@@ -171,7 +171,6 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
      * Sets the width used for drawing borders around the bars.
      * If borderWidth == 0, no border will be drawn.
      *
-     * @return
      */
     public void setBarBorderWidth(float width) {
         mBarBorderWidth = width;
@@ -181,7 +180,7 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
      * Returns the width used for drawing borders around the bars.
      * If borderWidth == 0, no border will be drawn.
      *
-     * @return
+     * @return borderWidth
      */
     @Override
     public float getBarBorderWidth() {
@@ -191,7 +190,6 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
     /**
      * Sets the color drawing borders around the bars.
      *
-     * @return
      */
     public void setBarBorderColor(int color) {
         mBarBorderColor = color;

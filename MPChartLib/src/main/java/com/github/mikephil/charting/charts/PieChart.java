@@ -570,7 +570,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
     /**
      * sets the radius of the transparent circle that is drawn next to the hole
      * in the piechart in percent of the maximum radius (max = the radius of the
-     * whole chart), default 55% -> means 5% larger than the center-hole by
+     * whole chart), default 55% -- means 5% larger than the center-hole by
      * default
      *
      * @param percent
@@ -596,7 +596,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
 
     /**
      * Set this to true to draw the entry labels into the pie slices (Provided by the getLabel() method of the PieEntry class).
-     * Deprecated -> use setDrawEntryLabels(...) instead.
+     * Deprecated - use setDrawEntryLabels(...) instead.
      *
      * @param enabled
      */

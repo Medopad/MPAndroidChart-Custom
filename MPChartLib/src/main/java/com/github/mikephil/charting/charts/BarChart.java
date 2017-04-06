@@ -123,7 +123,6 @@ public class BarChart extends BarLineChartBase<BarData> implements BarDataProvid
      * The rect will be assigned Float.MIN_VALUE in all locations if the Entry could not be found in the charts data.
      *
      * @param e
-     * @return
      */
     public void getBarBounds(BarEntry e, RectF outputRect) {
 

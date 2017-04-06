@@ -57,7 +57,7 @@ public class PieDataSet extends DataSet<PieEntry> implements IPieDataSet {
 
     /**
      * Sets the space that is left out between the piechart-slices in dp.
-     * Default: 0 --> no space, maximum 20f
+     * Default: 0 -- no space, maximum 20f
      *
      * @param spaceDp
      */

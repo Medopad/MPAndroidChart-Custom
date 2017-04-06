@@ -143,7 +143,6 @@ public abstract class DataSet<T extends Entry> extends BaseDataSet<T> {
     /**
      * Sets the array of entries that this DataSet represents, and calls notifyDataSetChanged()
      *
-     * @return
      */
     public void setValues(List<T> values) {
         mValues = values;

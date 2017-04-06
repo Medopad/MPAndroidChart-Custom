@@ -144,7 +144,6 @@ public abstract class AxisRenderer extends Renderer {
     /**
      * Sets up the axis values. Computes the desired number of labels between the two given extremes.
      *
-     * @return
      */
     protected void computeAxisValues(float min, float max) {
 

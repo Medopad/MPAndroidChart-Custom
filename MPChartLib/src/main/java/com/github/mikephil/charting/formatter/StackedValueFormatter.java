@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
 
 /**
  * Created by Philipp Jahoda on 28/01/16.
- * <p/>
+ *
  * A formatter specifically for stacked BarChart that allows to specify whether the all stack values
  * or just the top value should be drawn.
  */

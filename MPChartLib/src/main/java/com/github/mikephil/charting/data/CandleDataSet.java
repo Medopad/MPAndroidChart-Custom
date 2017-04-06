@@ -41,13 +41,13 @@ public class CandleDataSet extends LineScatterCandleRadarDataSet<CandleEntry> im
     private boolean mShadowColorSameAsCandle = false;
 
     /**
-     * paint style when open < close
+     * paint style when open smaller than close
      * increasing candlesticks are traditionally hollow
      */
     protected Paint.Style mIncreasingPaintStyle = Paint.Style.STROKE;
 
     /**
-     * paint style when open > close
+     * paint style when open greater than close
      * descreasing candlesticks are traditionally filled
      */
     protected Paint.Style mDecreasingPaintStyle = Paint.Style.FILL;
@@ -58,12 +58,12 @@ public class CandleDataSet extends LineScatterCandleRadarDataSet<CandleEntry> im
     protected int mNeutralColor = ColorTemplate.COLOR_SKIP;
 
     /**
-     * color for open < close
+     * color for open smaller than close
      */
     protected int mIncreasingColor = ColorTemplate.COLOR_SKIP;
 
     /**
-     * color for open > close
+     * color for open greater than close
      */
     protected int mDecreasingColor = ColorTemplate.COLOR_SKIP;
 
@@ -206,7 +206,7 @@ public class CandleDataSet extends LineScatterCandleRadarDataSet<CandleEntry> im
 
     /**
      * Sets the one and ONLY color that should be used for this DataSet when
-     * open <= close.
+     * open smaller than or equal close.
      *
      * @param color
      */
@@ -221,7 +221,7 @@ public class CandleDataSet extends LineScatterCandleRadarDataSet<CandleEntry> im
 
     /**
      * Sets the one and ONLY color that should be used for this DataSet when
-     * open > close.
+     * open greater than close.
      *
      * @param color
      */
@@ -240,7 +240,7 @@ public class CandleDataSet extends LineScatterCandleRadarDataSet<CandleEntry> im
     }
 
     /**
-     * Sets paint style when open < close
+     * Sets paint style when open smaller than close
      *
      * @param paintStyle
      */
@@ -254,7 +254,7 @@ public class CandleDataSet extends LineScatterCandleRadarDataSet<CandleEntry> im
     }
 
     /**
-     * Sets paint style when open > close
+     * Sets paint style when open greater than close
      *
      * @param decreasingPaintStyle
      */

@@ -8,7 +8,7 @@ import com.github.mikephil.charting.data.BarEntry;
 public interface IBarDataSet extends IBarLineScatterCandleBubbleDataSet<BarEntry> {
 
     /**
-     * Returns true if this DataSet is stacked (stacksize > 1) or not.
+     * Returns true if this DataSet is stacked (stacksize greater than 1) or not.
      *
      * @return
      */
@@ -16,7 +16,7 @@ public interface IBarDataSet extends IBarLineScatterCandleBubbleDataSet<BarEntry
 
     /**
      * Returns the maximum number of bars that can be stacked upon another in
-     * this DataSet. This should return 1 for non stacked bars, and > 1 for stacked bars.
+     * this DataSet. This should return 1 for non stacked bars, and greater than 1 for stacked bars.
      *
      * @return
      */

@@ -6,7 +6,7 @@ import android.graphics.RectF;
 import android.view.View;
 
 /**
- * Class that contains information about the charts current viewport settings, including offsets, scale & translation
+ * Class that contains information about the charts current viewport settings, including offsets, scale and translation
  * levels, ...
  *
  * @author Philipp Jahoda
@@ -370,7 +370,6 @@ public class ViewPortHandler {
      * Post-translates to the specified points.  Output matrix allows for caching objects.
      *
      * @param transformedPts
-     * @return
      */
     public void translate(final float[] transformedPts, Matrix outputMatrix) {
         outputMatrix.reset();
@@ -390,7 +389,6 @@ public class ViewPortHandler {
      *
      * @param transformedPts the position to center view viewport to
      * @param view
-     * @return save
      */
     public void centerViewPort(final float[] transformedPts, final View view) {
 
