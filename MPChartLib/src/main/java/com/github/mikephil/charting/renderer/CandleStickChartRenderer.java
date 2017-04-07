@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import com.github.mikephil.charting.animation.ChartAnimator;
 import com.github.mikephil.charting.data.CandleData;
 import com.github.mikephil.charting.data.CandleEntry;
+import com.github.mikephil.charting.data.FixedWidthCandleEntry;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.dataprovider.CandleDataProvider;
 import com.github.mikephil.charting.interfaces.datasets.IBubbleDataSet;
@@ -352,17 +353,17 @@ public class CandleStickChartRenderer extends LineScatterCandleRadarRenderer {
             for (int j = mXBounds.min; j <= mXBounds.range + mXBounds.min; j++) {
 
                 // get the entry
-                CandleEntry e = dataSet.getEntryForIndex(j);
+                CandleEntry candleEntry = dataSet.getEntryForIndex(j);
 
-                if (e == null)
+                if (candleEntry == null)
                     continue;
 
-                final float xPos = e.getX();
+                final float xPos = candleEntry.getX();
 
-                final float open = e.getOpen();
-                final float close = e.getClose();
-                final float high = e.getHigh();
-                final float low = e.getLow();
+                final float open = candleEntry.getOpen();
+                final float close = candleEntry.getClose();
+                final float high = candleEntry.getHigh();
+                final float low = candleEntry.getLow();
 
                 if (showCandleBar) {
                     // calculate the shadow
@@ -392,7 +393,6 @@ public class CandleStickChartRenderer extends LineScatterCandleRadarRenderer {
                     trans.pointValuesToPixel(mShadowBuffers);
 
                     // draw the shadows
-
                     if (dataSet.getShadowColorSameAsCandle()) {
 
                         if (open > close)
@@ -429,11 +429,22 @@ public class CandleStickChartRenderer extends LineScatterCandleRadarRenderer {
                     c.drawLines(mShadowBuffers, mRenderPaint);
 
                     // calculate the body
+                    if(candleEntry instanceof FixedWidthCandleEntry){
+                        float xPosCount = mChart.getXChartMax() + 1;
 
-                    mBodyBuffers[0] = xPos - 0.5f + barSpace;
-                    mBodyBuffers[1] = close * phaseY;
-                    mBodyBuffers[2] = (xPos + 0.5f - barSpace);
-                    mBodyBuffers[3] = open * phaseY;
+                        float normalisedWidthLeft = ((FixedWidthCandleEntry) candleEntry).getWidth() * xPosCount / 100;
+                        float normalisedWidthRight = ((FixedWidthCandleEntry) candleEntry).getWidth() * xPosCount / 100;
+
+                        mBodyBuffers[0] = xPos - normalisedWidthLeft ;
+                        mBodyBuffers[1] = close * phaseY;
+                        mBodyBuffers[2] = xPos + normalisedWidthRight;
+                        mBodyBuffers[3] = open * phaseY;
+                    } else {
+                        mBodyBuffers[0] = xPos - 0.5f + barSpace;
+                        mBodyBuffers[1] = close * phaseY;
+                        mBodyBuffers[2] = (xPos + 0.5f - barSpace);
+                        mBodyBuffers[3] = open * phaseY;
+                    }
 
                     trans.pointValuesToPixel(mBodyBuffers);
 

@@ -1,9 +1,5 @@
 package com.github.mikephil.charting.data;
 
-/**
- * Created by ludwig on 12/03/2017.
- */
-
 public class FixedSizeBubbleEntry extends BubbleEntry {
     private int value;
 
